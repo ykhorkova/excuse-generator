@@ -9,46 +9,43 @@ import 'bootstrap';
 //include your own styles
 // import '../style/index.scss';
 
-window.onload = function(){
-   function generateExcuse(A, B, C, D){
-        var random1 = Math.floor(Math.random() * 3);
-        var random2 = Math.floor(Math.random() * 3);
-        var random3 = Math.floor(Math.random() * 3);
-        var random4 = Math.floor(Math.random() * 3);
         
-        const sentence = A[random1] + ' ' + B[random2] + ' ' + C[random3] + ' ' + D[random4];
-        return sentence;
-    }
-    
     let pronouns = [
-        'My', 'The', 'Our'
+        'My', 'Her', 'Your', 'His'
         ];
-    let noun = [
-        'dog', 'mom', 'wife'
+    let subject = [
+        'dog was', 'grandma was', 'wife was', 'car was'
         ];
     let verb = [
-        'sleeps', 'eat', 'drink'
+        'sick', 'missing', 'destroyed', 'visiting me'
         ];
-    let adverb = [
-        'well', 'a lot', 'too much'
+    let noun = [
+        'this morning.', 'today.', 'recently.', 'late last night.'
         ];
-    console.log(generateExcuse(pronouns,noun, verb, adverb));
+window.onload = function(){
+    document.querySelector("#daButton").addEventListener("click", generateExcuse);
+    
+    
+    document.querySelector('#daButton').innerHTML = "<h1>" + 'Excuses, Excuses' + '</h1>';
+    
 };
 
+function generateExcuse(){
+        var random1 = Math.floor(Math.random() * 4);
+        var random2 = Math.floor(Math.random() * 4);
+        var random3 = Math.floor(Math.random() * 4);
+        var random4 = Math.floor(Math.random() * 4);
 
-
-
-
-
-
-    // var pronounPosition = 0;
-        
-    // var theExcuse = pronouns[pronounPosition] + ' ' + subjects[0]; 
-    // var excuses = [
-    //     'My dog eat the homework',
-    //     'My house was burned',
-    //     'It was not me',
-    //     'The light was off'
-    // ];
-    // excuses.push('My mom is really sick');
+        console.log(random1);
+        console.log(random2);
+        console.log(random3);
+        console.log(random4);
     
+        const sentence = pronouns[random1] + ' ' + subject[random2] + ' ' + verb[random3] + ' ' + noun[random4];
+        document.querySelector('#theContent').innerHTML = "<h1>" + sentence + '</h1>';
+        return sentence;
+    }
+
+
+
+
