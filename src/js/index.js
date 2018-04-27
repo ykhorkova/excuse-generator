@@ -8,18 +8,11 @@ import $ from "jquery";
 import 'bootstrap';
 //include your own styles
 // import '../style/index.scss';
-
 window.onload = function(){
-   function generateExcuse(A, B, C, D){
-        var random1 = Math.floor(Math.random() * 3);
-        var random2 = Math.floor(Math.random() * 3);
-        var random3 = Math.floor(Math.random() * 3);
-        var random4 = Math.floor(Math.random() * 3);
-        
-        const sentence = A[random1] + ' ' + B[random2] + ' ' + C[random3] + ' ' + D[random4];
-        return sentence;
-    }
-    
+    document.querySelector('#daButton').addEventListener('click',theButtonWasClicked);
+};
+
+function theButtonWasClicked(){
     let pronouns = [
         'My', 'The', 'Our'
         ];
@@ -32,23 +25,22 @@ window.onload = function(){
     let adverb = [
         'well', 'a lot', 'too much'
         ];
-    console.log(generateExcuse(pronouns,noun, verb, adverb));
-};
+    let theExcuse = generateExcuse(pronouns,noun, verb, adverb);
+    document.querySelector('.theEcxuseText').innerHTML = theExcuse;
+    newStyles();
+}
 
+function newStyles(){
+    document.querySelector('.theEcxuseText').style.color = 'red';
+}
 
-
-
-
-
-
-    // var pronounPosition = 0;
-        
-    // var theExcuse = pronouns[pronounPosition] + ' ' + subjects[0]; 
-    // var excuses = [
-    //     'My dog eat the homework',
-    //     'My house was burned',
-    //     'It was not me',
-    //     'The light was off'
-    // ];
-    // excuses.push('My mom is really sick');
+function generateExcuse(A, B, C, D){
+    var random1 = Math.floor(Math.random() * 3);
+    var random2 = Math.floor(Math.random() * 3);
+    var random3 = Math.floor(Math.random() * 3);
+    var random4 = Math.floor(Math.random() * 3);
+    
+    const sentence = A[random1] + ' ' + B[random2] + ' ' + C[random3] + ' ' + D[random4];
+    return sentence;
+}
     
